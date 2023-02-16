@@ -49,10 +49,10 @@ namespace WebSearch.Function
                 Size = data.Size,
                 Skip = data.Skip,
                 IncludeTotalCount = true,
-                Filter = CreateFilterExpression(data.Filters)
+                //Filter = CreateFilterExpression(data.Filters)
             };
-            options.Facets.Add("authors");
-            options.Facets.Add("language_code");
+            options.Facets.Add("Keywords");
+            options.Facets.Add("text");
 
             SearchResults<SearchDocument> searchResults = searchClient.Search<SearchDocument>(data.SearchText, options);
 

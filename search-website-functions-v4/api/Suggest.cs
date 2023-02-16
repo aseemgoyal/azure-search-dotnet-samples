@@ -13,10 +13,10 @@ namespace WebSearch.Function
 {
     public class Suggest
     {
-        private static string searchApiKey = Environment.GetEnvironmentVariable("SearchApiKey", EnvironmentVariableTarget.Process);
-        private static string searchServiceName = Environment.GetEnvironmentVariable("SearchServiceName", EnvironmentVariableTarget.Process);
-        private static string searchIndexName = Environment.GetEnvironmentVariable("SearchIndexName", EnvironmentVariableTarget.Process) ?? "good-books";
-
+        private static string searchApiKey = "OaPGBUkTWIwh3c1Hmuz1FQ4J5b7cCn4Wzf8xDlWGuiAzSeDlga7W";
+        private static string searchServiceName = "sharepointsearchwithai";
+        private static string searchIndexName = "azureblob-index";
+        
         private readonly ILogger<Lookup> _logger;
 
         public Suggest(ILogger<Lookup> logger)

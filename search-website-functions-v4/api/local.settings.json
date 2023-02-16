@@ -3,9 +3,9 @@
   "Values": {
     "AzureWebJobsStorage": "",
     "FUNCTIONS_WORKER_RUNTIME": "dotnet-isolated",
-    "SearchApiKey": "",
-    "SearchServiceName": "",
-    "SearchIndexName": "good-books"
+    "SearchApiKey": "OaPGBUkTWIwh3c1Hmuz1FQ4J5b7cCn4Wzf8xDlWGuiAzSeDlga7W",
+    "SearchServiceName": "sharepointsearchwithai",
+    "SearchIndexName": "azureblob-index"
   },
   "Host": {
     "CORS": "*"

@@ -31,8 +31,11 @@ namespace WebSearch.Function
             [HttpTrigger(AuthorizationLevel.Anonymous, "post")] HttpRequestData req, 
             FunctionContext executionContext)
         {
+
+            executionContext.logger.LogInformation("Entered function");
             string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
             var data = JsonSerializer.Deserialize<RequestBodySearch>(requestBody);
+            executionContext.logger.LogInformation("Got requestBody : {0}", requestBody);
 
             // Cognitive Search 
             Uri serviceEndpoint = new($"https://{searchServiceName}.search.windows.net/");
@@ -42,6 +45,8 @@ namespace WebSearch.Function
                 searchIndexName,
                 new AzureKeyCredential(searchApiKey)
             );
+
+            executionContext.logger.LogInformation("Created search client");
 
             SearchOptions options = new()
 
@@ -55,6 +60,7 @@ namespace WebSearch.Function
             options.Facets.Add("text");
 
             SearchResults<SearchDocument> searchResults = searchClient.Search<SearchDocument>(data.SearchText, options);
+            executionContext.logger.LogInformation("Got search results");
 
             var facetOutput = new Dictionary<string, IList<FacetValue>>();
             foreach (var facetResult in searchResults.Facets)

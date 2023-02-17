@@ -15,7 +15,6 @@ namespace check_storage_usage
     {
         // Run on a timer every 30 minutes
         // https://docs.microsoft.com/azure/azure-functions/functions-bindings-timer
-        [FunctionName("CheckStorageUsage")]
         public async Task Run([TimerTrigger("0 */30 * * * *")]TimerInfo timer, ILogger log)
         {
             string serviceName = Environment.GetEnvironmentVariable("ServiceName");
